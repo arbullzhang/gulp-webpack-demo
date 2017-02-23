@@ -33,7 +33,7 @@ var browser = os.platform() === 'linux' ? 'Google chrome' : (
 var pkg = require('./package.json');
 
 //将图片拷贝到目标目录
-gulp.task('copy:images', function (done) {
+gulp.task('copyimages', function (done) {
     gulp.src(['src/images/**/*']).pipe(gulp.dest('dist/images')).on('end', done);
 });
 
@@ -141,4 +141,4 @@ gulp.task("build-js", ['fileinclude'], function(callback) {
 gulp.task('default', ['connect', 'fileinclude', 'md5:css', 'md5:js', 'open']);
 
 //开发
-gulp.task('dev', ['connect', 'copy:images', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
+gulp.task('dev', ['connect', 'copyimages', 'fileinclude', 'lessmin', 'build-js', 'watch', 'open']);
