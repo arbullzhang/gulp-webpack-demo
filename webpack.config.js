@@ -32,11 +32,14 @@ module.exports = {
         filename: "[name].js",
         chunkFilename: "[chunkhash].js"
     },
+    externals:{/*引入外部js方法1: <script src="https://code.jquery.com/jquery-git2.min.js"></script> 在html中用script标签引入js文件*/
+        /*jquery: "jQuery"*/
+    },
     resolve: {
         alias: {
-            jquery: srcDir + "/js/lib/jquery.min.js",
+            jquery: srcDir + "/js/lib/jquery.min.js", /*引入外部js方法2: 将jQuery代码保存到本地*/
             core: srcDir + "/js/core",
-            ui: srcDir + "/js/ui"
+            ui: srcDir + "/js/ui"/*取别名, 减少路径长度*/
         }
     },
     plugins: [
